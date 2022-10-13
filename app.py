@@ -35,7 +35,7 @@ class PipelineStack(cdk.Stack):
             synth=pipelines.ShellStep(
                 "Synth",
                 input=pipelines.CodePipelineSource.connection(
-                    repo_string="repostring", branch="master", connection_arn=""
+                    repo_string="products-service", branch="master", connection_arn="arn:aws:codestar:us-east-1:195480428059:project/products-servic"
                 ),
                 commands=[
                     "npm ci && npm ci --prefix lambda",
