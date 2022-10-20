@@ -1,0 +1,193 @@
+{
+  "version": "21.0.0",
+  "artifacts": {
+    "pipelineproductspipelineproductsprodproductsstageproductsprodproductsproductsstage83BE8759.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "pipelineproductspipelineproductsprodproductsstageproductsprodproductsproductsstage83BE8759.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "pipelineproductspipelineproductsprodproductsstageproductsprodproductsproductsstage83BE8759": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://009939884268/us-east-1",
+      "properties": {
+        "templateFile": "pipelineproductspipelineproductsprodproductsstageproductsprodproductsproductsstage83BE8759.template.json",
+        "validateOnSynth": true,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::009939884268:role/cdk-hnb659fds-deploy-role-009939884268-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::009939884268:role/cdk-hnb659fds-cfn-exec-role-009939884268-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-009939884268-us-east-1/00d3337b5cfbce318da8f555f76f7e22217a7c8faf58c68851742b9a6b354e7a.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "pipelineproductspipelineproductsprodproductsstageproductsprodproductsproductsstage83BE8759.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::009939884268:role/cdk-hnb659fds-lookup-role-009939884268-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        },
+        "stackName": "prod-products-stage-products-prod-products-products-stage"
+      },
+      "dependencies": [
+        "pipelineproductspipelineproductsprodproductsstageproductsprodproductsproductsstage83BE8759.assets"
+      ],
+      "metadata": {
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproducts3FB1EFB0"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproductsCloudWatchRole578F249B"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproductsAccount29EF7734"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproductsDeploymentF63A14BEc4e0d91c0688d49b4366d542d6111320"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproductsDeploymentStageprod3FD8EF26"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproductsEndpointA6F5F5F1"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/Default/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproductsOPTIONS98DEF801"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/Default/api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproductsapi95A15D9A"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/Default/api/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproductsapiOPTIONS5BEC3ADF"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/Default/api/v1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproductsapiv1C9637A3B"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/Default/api/v1/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproductsapiv1OPTIONSAB272741"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/Default/api/v1/products/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproductsapiv1products2D7F6B97"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/Default/api/v1/products/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproductsapiv1productsOPTIONSC882E95A"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/Default/api/v1/products/POST/ApiPermission.pipelineproductspipelineproductsprodproductsstageproductsprodproductsproductsstageprodproductsgwproducts8D01CE7C.POST..api.v1.products": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproductsapiv1productsPOSTApiPermissionpipelineproductspipelineproductsprodproductsstageproductsprodproductsproductsstageprodproductsgwproducts8D01CE7CPOSTapiv1productsC2842C94"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/Default/api/v1/products/POST/ApiPermission.Test.pipelineproductspipelineproductsprodproductsstageproductsprodproductsproductsstageprodproductsgwproducts8D01CE7C.POST..api.v1.products": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproductsapiv1productsPOSTApiPermissionTestpipelineproductspipelineproductsprodproductsstageproductsprodproductsproductsstageprodproductsgwproducts8D01CE7CPOSTapiv1products643B657C"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-gw-products/Default/api/v1/products/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsgwproductsapiv1productsPOST2E7E756F"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-lambda-role-lambda-role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodlambdarolelambdarole78B8287E"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-lambda-role-lambda-role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodlambdarolelambdaroleDefaultPolicy5F9E408C"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-products/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsproductsB9AD3457"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-gw-products-api-id-gw-products-api-id": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodgwproductsapiidgwproductsapiid"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-users-table": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "prodproductsuserstable92D9DE5E"
+            }
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/prod-products-users-table/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "prodproductsuserstable92D9DE5E"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "pipeline-products-pipeline-products/prod-products-stage-products/prod-products-products-stage"
+    }
+  }
+}

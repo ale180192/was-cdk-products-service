@@ -1,0 +1,35 @@
+{
+  "version": "21.0.0",
+  "files": {
+    "00d3337b5cfbce318da8f555f76f7e22217a7c8faf58c68851742b9a6b354e7a": {
+      "source": {
+        "path": "pipelineproductspipelineproductsprodproductsstageproductsprodproductsproductsstage83BE8759.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "009939884268-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-009939884268-us-east-1",
+          "objectKey": "00d3337b5cfbce318da8f555f76f7e22217a7c8faf58c68851742b9a6b354e7a.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::009939884268:role/cdk-hnb659fds-file-publishing-role-009939884268-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {
+    "225ef2aeea6991c7e7325abd9af7c02135292a7c3a553f4e522fd5386ccb6a4b": {
+      "source": {
+        "directory": "../asset.225ef2aeea6991c7e7325abd9af7c02135292a7c3a553f4e522fd5386ccb6a4b",
+        "dockerFile": "./products/Dockerfile"
+      },
+      "destinations": {
+        "009939884268-us-east-1": {
+          "repositoryName": "cdk-hnb659fds-container-assets-009939884268-us-east-1",
+          "imageTag": "225ef2aeea6991c7e7325abd9af7c02135292a7c3a553f4e522fd5386ccb6a4b",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::009939884268:role/cdk-hnb659fds-image-publishing-role-009939884268-us-east-1"
+        }
+      }
+    }
+  }
+}

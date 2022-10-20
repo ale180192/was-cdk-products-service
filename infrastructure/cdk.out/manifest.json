@@ -1,0 +1,204 @@
+{
+  "version": "21.0.0",
+  "artifacts": {
+    "assembly-pipeline-products-pipeline-products-sandbox-products-stage-products": {
+      "type": "cdk:cloud-assembly",
+      "properties": {
+        "directoryName": "assembly-pipeline-products-pipeline-products-sandbox-products-stage-products",
+        "displayName": "pipeline-products-pipeline-products/sandbox-products-stage-products"
+      }
+    },
+    "assembly-pipeline-products-pipeline-products-prod-products-stage-products": {
+      "type": "cdk:cloud-assembly",
+      "properties": {
+        "directoryName": "assembly-pipeline-products-pipeline-products-prod-products-stage-products",
+        "displayName": "pipeline-products-pipeline-products/prod-products-stage-products"
+      }
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "pipeline-products-pipeline-products.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "pipeline-products-pipeline-products.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "pipeline-products-pipeline-products": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://195480428059/us-east-1",
+      "properties": {
+        "templateFile": "pipeline-products-pipeline-products.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::195480428059:role/cdk-hnb659fds-deploy-role-195480428059-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::195480428059:role/cdk-hnb659fds-cfn-exec-role-195480428059-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-195480428059-us-east-1/e5d5f24a9b09f1e92b9c4eed37a5f3445eb97e3749654f295079614aa544fb64.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "pipeline-products-pipeline-products.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::195480428059:role/cdk-hnb659fds-lookup-role-195480428059-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "pipeline-products-pipeline-products.assets"
+      ],
+      "metadata": {
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Pipeline/ArtifactsBucketEncryptionKey/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelinePipelineArtifactsBucketEncryptionKey8E4EFDDE"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Pipeline/ArtifactsBucketEncryptionKeyAlias/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelinePipelineArtifactsBucketEncryptionKeyAlias3658FFA9"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Pipeline/ArtifactsBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelinePipelineArtifactsBucketC8FBF4C9"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Pipeline/ArtifactsBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelinePipelineArtifactsBucketPolicy226E0905"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Pipeline/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelinePipelineRole42E79F9C"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Pipeline/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelinePipelineRoleDefaultPolicyE1627F37"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Pipeline/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelinePipeline466464E8"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Pipeline/Source/ale180192_was-cdk-products-service/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelinePipelineSourceale180192wascdkproductsserviceCodePipelineActionRole9F4F1757"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Pipeline/Source/ale180192_was-cdk-products-service/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelinePipelineSourceale180192wascdkproductsserviceCodePipelineActionRoleDefaultPolicy82CB0819"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Pipeline/Build/Synth/CdkBuildProject/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelinePipelineBuildSynthCdkBuildProjectRoleC45830D1"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Pipeline/Build/Synth/CdkBuildProject/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelinePipelineBuildSynthCdkBuildProjectRoleDefaultPolicy14C63CA9"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Pipeline/Build/Synth/CdkBuildProject/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelinePipelineBuildSynthCdkBuildProject61F90840"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Pipeline/prod-products-stage-products/pipeline-products-manual-approve-step/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelinePipelineprodproductsstageproductspipelineproductsmanualapprovestepCodePipelineActionRoleA014B67D"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/CodeBuildActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelineCodeBuildActionRoleBC05F6DC"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/CodeBuildActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelineCodeBuildActionRoleDefaultPolicy82D234DD"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/UpdatePipeline/SelfMutation/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelineUpdatePipelineSelfMutationRole5F741D1E"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/UpdatePipeline/SelfMutation/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelineUpdatePipelineSelfMutationRoleDefaultPolicy1192A1EF"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/UpdatePipeline/SelfMutation/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelineUpdatePipelineSelfMutation39B36092"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Assets/DockerRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelineAssetsDockerRole10DFEEA9"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Assets/DockerRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelineAssetsDockerRoleDefaultPolicyDE647D48"
+          }
+        ],
+        "/pipeline-products-pipeline-products/pipeline-products-products-pipeline/Assets/DockerAsset1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineproductsproductspipelineAssetsDockerAsset14FB05F3E"
+          }
+        ],
+        "/pipeline-products-pipeline-products/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/pipeline-products-pipeline-products/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/pipeline-products-pipeline-products/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "pipeline-products-pipeline-products"
+    }
+  }
+}

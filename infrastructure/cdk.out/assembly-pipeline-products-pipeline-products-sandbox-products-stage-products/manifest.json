@@ -1,0 +1,193 @@
+{
+  "version": "21.0.0",
+  "artifacts": {
+    "pipelineproductspipelineproductssandboxproductsstageproductssandboxproductsproductsstage800AC479.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "pipelineproductspipelineproductssandboxproductsstageproductssandboxproductsproductsstage800AC479.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "pipelineproductspipelineproductssandboxproductsstageproductssandboxproductsproductsstage800AC479": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://057864228752/us-east-1",
+      "properties": {
+        "templateFile": "pipelineproductspipelineproductssandboxproductsstageproductssandboxproductsproductsstage800AC479.template.json",
+        "validateOnSynth": true,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::057864228752:role/cdk-hnb659fds-deploy-role-057864228752-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::057864228752:role/cdk-hnb659fds-cfn-exec-role-057864228752-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-057864228752-us-east-1/3789bf80512e9bf4ce4ea4c67271e6e382c2bc05e682452560729ef4bd2fcfed.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "pipelineproductspipelineproductssandboxproductsstageproductssandboxproductsproductsstage800AC479.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::057864228752:role/cdk-hnb659fds-lookup-role-057864228752-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        },
+        "stackName": "sandbox-products-stage-products-sandbox-products-products-stage"
+      },
+      "dependencies": [
+        "pipelineproductspipelineproductssandboxproductsstageproductssandboxproductsproductsstage800AC479.assets"
+      ],
+      "metadata": {
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproducts63656082"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproductsCloudWatchRole28BC24C5"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproductsAccount1C5AB292"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproductsDeployment9F4F618974ba0cdf36ccb76c9d8b46456ea1fbb3"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproductsDeploymentStageprodCC1D9930"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproductsEndpointDC32C343"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproductsOPTIONS490D9E37"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproductsapiDFC595B0"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproductsapiOPTIONS6D1DD7C0"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/v1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproductsapiv1D9DD9C41"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/v1/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproductsapiv1OPTIONSF1A608B6"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/v1/products/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproductsapiv1productsAC1AE758"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/v1/products/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproductsapiv1productsOPTIONS2D6B29E3"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/v1/products/POST/ApiPermission.pipelineproductspipelineproductssandboxproductsstageproductssandboxproductsproductsstagesandboxproductsgwproducts089CA94F.POST..api.v1.products": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproductsapiv1productsPOSTApiPermissionpipelineproductspipelineproductssandboxproductsstageproductssandboxproductsproductsstagesandboxproductsgwproducts089CA94FPOSTapiv1productsC2C11F36"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/v1/products/POST/ApiPermission.Test.pipelineproductspipelineproductssandboxproductsstageproductssandboxproductsproductsstagesandboxproductsgwproducts089CA94F.POST..api.v1.products": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproductsapiv1productsPOSTApiPermissionTestpipelineproductspipelineproductssandboxproductsstageproductssandboxproductsproductsstagesandboxproductsgwproducts089CA94FPOSTapiv1products678E4B8D"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/v1/products/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsgwproductsapiv1productsPOST053AEAB1"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-lambda-role-lambda-role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxlambdarolelambdarole0DEF47A3"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-lambda-role-lambda-role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxlambdarolelambdaroleDefaultPolicy8E2B0569"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-products/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsproducts495B2113"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-gw-products-api-id-gw-products-api-id": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxgwproductsapiidgwproductsapiid"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-users-table": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "sandboxproductsuserstableFFEF4BF2"
+            }
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-users-table/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sandboxproductsuserstableFFEF4BF2"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage"
+    }
+  }
+}

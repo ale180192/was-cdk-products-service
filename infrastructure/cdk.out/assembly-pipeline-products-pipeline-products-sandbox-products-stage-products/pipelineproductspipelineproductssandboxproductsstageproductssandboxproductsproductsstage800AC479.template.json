@@ -1,0 +1,686 @@
+{
+ "Resources": {
+  "sandboxproductsgwproducts63656082": {
+   "Type": "AWS::ApiGateway::RestApi",
+   "Properties": {
+    "ApiKeySourceType": "HEADER",
+    "Name": "sandbox-products-gw-products"
+   },
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Resource"
+   }
+  },
+  "sandboxproductsgwproductsCloudWatchRole28BC24C5": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "apigateway.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+       ]
+      ]
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/CloudWatchRole/Resource"
+   }
+  },
+  "sandboxproductsgwproductsAccount1C5AB292": {
+   "Type": "AWS::ApiGateway::Account",
+   "Properties": {
+    "CloudWatchRoleArn": {
+     "Fn::GetAtt": [
+      "sandboxproductsgwproductsCloudWatchRole28BC24C5",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "sandboxproductsgwproducts63656082"
+   ],
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Account"
+   }
+  },
+  "sandboxproductsgwproductsDeployment9F4F618974ba0cdf36ccb76c9d8b46456ea1fbb3": {
+   "Type": "AWS::ApiGateway::Deployment",
+   "Properties": {
+    "RestApiId": {
+     "Ref": "sandboxproductsgwproducts63656082"
+    },
+    "Description": "Automatically created by the RestApi construct"
+   },
+   "DependsOn": [
+    "sandboxproductsgwproductsapiOPTIONS6D1DD7C0",
+    "sandboxproductsgwproductsapiDFC595B0",
+    "sandboxproductsgwproductsapiv1OPTIONSF1A608B6",
+    "sandboxproductsgwproductsapiv1productsOPTIONS2D6B29E3",
+    "sandboxproductsgwproductsapiv1productsPOST053AEAB1",
+    "sandboxproductsgwproductsapiv1productsAC1AE758",
+    "sandboxproductsgwproductsapiv1D9DD9C41",
+    "sandboxproductsgwproductsOPTIONS490D9E37"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Deployment/Resource"
+   }
+  },
+  "sandboxproductsgwproductsDeploymentStageprodCC1D9930": {
+   "Type": "AWS::ApiGateway::Stage",
+   "Properties": {
+    "RestApiId": {
+     "Ref": "sandboxproductsgwproducts63656082"
+    },
+    "DeploymentId": {
+     "Ref": "sandboxproductsgwproductsDeployment9F4F618974ba0cdf36ccb76c9d8b46456ea1fbb3"
+    },
+    "StageName": "prod"
+   },
+   "DependsOn": [
+    "sandboxproductsgwproductsAccount1C5AB292"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/DeploymentStage.prod/Resource"
+   }
+  },
+  "sandboxproductsgwproductsOPTIONS490D9E37": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "HttpMethod": "OPTIONS",
+    "ResourceId": {
+     "Fn::GetAtt": [
+      "sandboxproductsgwproducts63656082",
+      "RootResourceId"
+     ]
+    },
+    "RestApiId": {
+     "Ref": "sandboxproductsgwproducts63656082"
+    },
+    "AuthorizationType": "NONE",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+       },
+       "StatusCode": "204"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{ statusCode: 200 }"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Origin": true,
+       "method.response.header.Access-Control-Allow-Methods": true
+      },
+      "StatusCode": "204"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/OPTIONS/Resource"
+   }
+  },
+  "sandboxproductsgwproductsapiDFC595B0": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Fn::GetAtt": [
+      "sandboxproductsgwproducts63656082",
+      "RootResourceId"
+     ]
+    },
+    "PathPart": "api",
+    "RestApiId": {
+     "Ref": "sandboxproductsgwproducts63656082"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/Resource"
+   }
+  },
+  "sandboxproductsgwproductsapiOPTIONS6D1DD7C0": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "HttpMethod": "OPTIONS",
+    "ResourceId": {
+     "Ref": "sandboxproductsgwproductsapiDFC595B0"
+    },
+    "RestApiId": {
+     "Ref": "sandboxproductsgwproducts63656082"
+    },
+    "AuthorizationType": "NONE",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+       },
+       "StatusCode": "204"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{ statusCode: 200 }"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Origin": true,
+       "method.response.header.Access-Control-Allow-Methods": true
+      },
+      "StatusCode": "204"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/OPTIONS/Resource"
+   }
+  },
+  "sandboxproductsgwproductsapiv1D9DD9C41": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Ref": "sandboxproductsgwproductsapiDFC595B0"
+    },
+    "PathPart": "v1",
+    "RestApiId": {
+     "Ref": "sandboxproductsgwproducts63656082"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/v1/Resource"
+   }
+  },
+  "sandboxproductsgwproductsapiv1OPTIONSF1A608B6": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "HttpMethod": "OPTIONS",
+    "ResourceId": {
+     "Ref": "sandboxproductsgwproductsapiv1D9DD9C41"
+    },
+    "RestApiId": {
+     "Ref": "sandboxproductsgwproducts63656082"
+    },
+    "AuthorizationType": "NONE",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+       },
+       "StatusCode": "204"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{ statusCode: 200 }"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Origin": true,
+       "method.response.header.Access-Control-Allow-Methods": true
+      },
+      "StatusCode": "204"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/v1/OPTIONS/Resource"
+   }
+  },
+  "sandboxproductsgwproductsapiv1productsAC1AE758": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Ref": "sandboxproductsgwproductsapiv1D9DD9C41"
+    },
+    "PathPart": "products",
+    "RestApiId": {
+     "Ref": "sandboxproductsgwproducts63656082"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/v1/products/Resource"
+   }
+  },
+  "sandboxproductsgwproductsapiv1productsOPTIONS2D6B29E3": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "HttpMethod": "OPTIONS",
+    "ResourceId": {
+     "Ref": "sandboxproductsgwproductsapiv1productsAC1AE758"
+    },
+    "RestApiId": {
+     "Ref": "sandboxproductsgwproducts63656082"
+    },
+    "AuthorizationType": "NONE",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+       },
+       "StatusCode": "204"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{ statusCode: 200 }"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Origin": true,
+       "method.response.header.Access-Control-Allow-Methods": true
+      },
+      "StatusCode": "204"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/v1/products/OPTIONS/Resource"
+   }
+  },
+  "sandboxproductsgwproductsapiv1productsPOSTApiPermissionpipelineproductspipelineproductssandboxproductsstageproductssandboxproductsproductsstagesandboxproductsgwproducts089CA94FPOSTapiv1productsC2C11F36": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "sandboxproductsproducts495B2113",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:us-east-1:057864228752:",
+       {
+        "Ref": "sandboxproductsgwproducts63656082"
+       },
+       "/",
+       {
+        "Ref": "sandboxproductsgwproductsDeploymentStageprodCC1D9930"
+       },
+       "/POST/api/v1/products"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/v1/products/POST/ApiPermission.pipelineproductspipelineproductssandboxproductsstageproductssandboxproductsproductsstagesandboxproductsgwproducts089CA94F.POST..api.v1.products"
+   }
+  },
+  "sandboxproductsgwproductsapiv1productsPOSTApiPermissionTestpipelineproductspipelineproductssandboxproductsstageproductssandboxproductsproductsstagesandboxproductsgwproducts089CA94FPOSTapiv1products678E4B8D": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "sandboxproductsproducts495B2113",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:us-east-1:057864228752:",
+       {
+        "Ref": "sandboxproductsgwproducts63656082"
+       },
+       "/test-invoke-stage/POST/api/v1/products"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/v1/products/POST/ApiPermission.Test.pipelineproductspipelineproductssandboxproductsstageproductssandboxproductsproductsstagesandboxproductsgwproducts089CA94F.POST..api.v1.products"
+   }
+  },
+  "sandboxproductsgwproductsapiv1productsPOST053AEAB1": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "HttpMethod": "POST",
+    "ResourceId": {
+     "Ref": "sandboxproductsgwproductsapiv1productsAC1AE758"
+    },
+    "RestApiId": {
+     "Ref": "sandboxproductsgwproducts63656082"
+    },
+    "AuthorizationType": "NONE",
+    "Integration": {
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:us-east-1:lambda:path/2015-03-31/functions/",
+        {
+         "Fn::GetAtt": [
+          "sandboxproductsproducts495B2113",
+          "Arn"
+         ]
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    },
+    "MethodResponses": [
+     {
+      "StatusCode": "200"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-gw-products/Default/api/v1/products/POST/Resource"
+   }
+  },
+  "sandboxlambdarolelambdarole0DEF47A3": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/SecretsManagerReadWrite"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-lambda-role-lambda-role/Resource"
+   }
+  },
+  "sandboxlambdarolelambdaroleDefaultPolicy8E2B0569": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "dynamodb:BatchGetItem",
+        "dynamodb:BatchWriteItem",
+        "dynamodb:ConditionCheckItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:DescribeTable",
+        "dynamodb:GetItem",
+        "dynamodb:GetRecords",
+        "dynamodb:GetShardIterator",
+        "dynamodb:PutItem",
+        "dynamodb:Query",
+        "dynamodb:Scan",
+        "dynamodb:UpdateItem"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "sandboxproductsuserstableFFEF4BF2",
+          "Arn"
+         ]
+        },
+        {
+         "Ref": "AWS::NoValue"
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "sandboxlambdarolelambdaroleDefaultPolicy8E2B0569",
+    "Roles": [
+     {
+      "Ref": "sandboxlambdarolelambdarole0DEF47A3"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-lambda-role-lambda-role/DefaultPolicy/Resource"
+   }
+  },
+  "sandboxproductsproducts495B2113": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "ImageUri": {
+      "Fn::Sub": "057864228752.dkr.ecr.us-east-1.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-057864228752-us-east-1:225ef2aeea6991c7e7325abd9af7c02135292a7c3a553f4e522fd5386ccb6a4b"
+     }
+    },
+    "Role": {
+     "Fn::GetAtt": [
+      "sandboxlambdarolelambdarole0DEF47A3",
+      "Arn"
+     ]
+    },
+    "Environment": {
+     "Variables": {
+      "log_level": "INFO"
+     }
+    },
+    "MemorySize": 256,
+    "PackageType": "Image",
+    "Timeout": 30
+   },
+   "DependsOn": [
+    "sandboxlambdarolelambdaroleDefaultPolicy8E2B0569",
+    "sandboxlambdarolelambdarole0DEF47A3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-products/Resource",
+    "aws:asset:path": "../asset.225ef2aeea6991c7e7325abd9af7c02135292a7c3a553f4e522fd5386ccb6a4b",
+    "aws:asset:dockerfile-path": "./products/Dockerfile",
+    "aws:asset:property": "Code.ImageUri"
+   }
+  },
+  "sandboxproductsuserstableFFEF4BF2": {
+   "Type": "AWS::DynamoDB::Table",
+   "Properties": {
+    "KeySchema": [
+     {
+      "AttributeName": "id",
+      "KeyType": "HASH"
+     },
+     {
+      "AttributeName": "email",
+      "KeyType": "RANGE"
+     }
+    ],
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "email",
+      "AttributeType": "S"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "TableName": "users"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/sandbox-products-users-table/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/3WQTU/DMAyGfwv3NCDYYdfChMQBMXXcJzc1xWsTV0mqKar633HaTeqFkx+//vaz3u300wNcQ2Garuip1tMpgumUSOcJBmoh4hWSnioMsRxIvf24DZbG8OiiOuDQc7IoKOrGk24tZm0FKeXRG3yFgOoT4y83OXije/Q2ZOFZEVgZz/0qZ3vknkzK7kqz6sHWDegpS+gthUDs1IFNh/7DyuT30ZmYNcm486zQ+DOEgDHoTW6ZlRzTFQ4cKLJPy8JNcmC5kSd9Q73us8A8Z/wa4zBGtVTna8m1/1x0THKue3zRe3n+JRAVXp5IFnW12j/WkqofmAEAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "pipeline-products-pipeline-products/sandbox-products-stage-products/sandbox-products-products-stage/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "sandboxproductsgwproductsEndpointDC32C343": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "https://",
+      {
+       "Ref": "sandboxproductsgwproducts63656082"
+      },
+      ".execute-api.us-east-1.",
+      {
+       "Ref": "AWS::URLSuffix"
+      },
+      "/",
+      {
+       "Ref": "sandboxproductsgwproductsDeploymentStageprodCC1D9930"
+      },
+      "/"
+     ]
+    ]
+   }
+  },
+  "sandboxgwproductsapiidgwproductsapiid": {
+   "Value": {
+    "Ref": "sandboxproductsgwproducts63656082"
+   },
+   "Export": {
+    "Name": "sandbox-gw-products-api-id-gw-products-api-id"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}
