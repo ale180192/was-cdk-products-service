@@ -183,6 +183,10 @@ class ProductRepository:
         return product
 
     def update_with_sku(self, id: str, product: dict, current_sku: str):
+        """
+        How the sku is unique, when we want to update the sku we need
+        to delete the unique row and insert a new row.
+        """
         self._client.transact_write_items(
             TransactItems=[
                 {
@@ -220,6 +224,11 @@ class ProductRepository:
 
 
     def update(self, id: str, product: dict):
+        """
+        We update the product item, the sku attribute will
+        not be updated. if need to update this attribute we
+        should use the update_with_sku method.
+        """
         self._client.transact_write_items(
             TransactItems=[
                 {
@@ -228,7 +237,7 @@ class ProductRepository:
                         "Key": { "id": { "S": id} },
                         "UpdateExpression": "SET sku = :sku, price = :price, brand = :brand",
                         "ExpressionAttributeValues":{
-                            ":sku":{"S": product.get("sku")},
+                            ":sku":{"S": product.get("sku")}, # TODO(alex): can we update sku?
                             # ":name":{"S": product.get("name")},
                             ":price":{"S": product.get("price")},
                             ":brand":{"S": product.get("brand")},

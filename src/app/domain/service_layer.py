@@ -16,11 +16,13 @@ from app.domain.models import (
     TokenData
 )
 from app.api.schemas import user_schema
+from app.domain.events import ProductCreateEvent
 
 oauth2_scheme = OAuth2PasswordBearer(
     tokenUrl="users/login"
 )
 PWD_CONTEXT = CryptContext(schemes=["bcrypt"], deprecated="auto")
+ # WARNING!! not secure
 JWT_SECRET = "testsecretkey123"
 ALGORITHM="HS256"
 
@@ -33,16 +35,25 @@ class UserService:
         pass
 
     def list(self) -> List:
+        """
+        It lists all the users.
+        """
         repo = self.repository.get_all()
         return repo
 
     def create_admin(self, user_model: UserModel):
+        """
+        It creates admin user.
+        """
         user_model.id = uuid4().hex
         user_model.is_admin = True
         user = self.repository.create(user=user_model.dict())
         return user
 
     def create(self, user_model: UserModel):
+        """
+        It creates a user(not admin).
+        """
         user_model.id = uuid4().hex
         user_model.is_admin = False
         self.repository.create(user=user_model.dict())
@@ -53,6 +64,11 @@ class UserService:
         password: str,
         first_name: str
     ) -> UserModel:
+        """
+        Sinup gives the email, password and first name attributes.
+        if the email is already registered it raises a UserAlreadyExistsException
+        exception.
+        """
         user_db = self.repository.get_by_email(email=email)
         if user_db:
             raise self.UserAlreadyExistsException("")
@@ -73,11 +89,15 @@ class UserService:
         email: str,
         password: str
     ) -> Optional[UserModel]:
+        """
+        It returns an access token if the credentials are correct
+        other else retuns None.
+        """
         user = self.repository.get_by_email(email=email)
         if not user:
             return None
 
-        if not self.verify_password(password, user.get("password")):
+        if not self._verify_password(password, user.get("password")):
             return None
 
         return UserModel.create_access_token(
@@ -88,7 +108,7 @@ class UserService:
 
 
     @classmethod
-    def verify_password(
+    def _verify_password(
         cls,
         plain_password: str,
         hashed_password: str
@@ -99,11 +119,11 @@ class UserService:
     def get_current_user(
         self, token: str = Depends(oauth2_scheme)
     ):
-        # credentials_exception = HTTPException(
-        #     status_code=status.HTTP_401_UNAUTHORIZED,
-        #     detail="Could not validate credentials",
-        #     headers={"WWW-Authenticate": "Bearer"},
-        # )
+        """
+        Get current user is a local function which retrieve the database
+        user given a id user into the token, but this funcion could request
+        to any auth micro-service to validate authentication and authorization.
+        """
         try:
             payload = jwt.decode(
                 token,
@@ -139,8 +159,10 @@ class ProductService:
         product = self.repository.get_by_sku(sku=product_model.sku)
         if product:
             raise self.ProductAlreadyExistsException("")
-
+        product_event = ProductCreateEvent(message=f"Product id {product.id} created.")
+        self.publisher.publish_event(event=product_event)
         self.repository.create(product=product_model.dict())
+        
         return product_model
 
     def list(self) -> List:

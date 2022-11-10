@@ -24,7 +24,6 @@ class UserModel(BaseModel):
     def create_access_token(
         self, *, sub: str, jwt_secret: str, algorithm
     ) -> str:
-        # WARNING!! not secure
         payload = {}
         lifetime = timedelta(minutes=48)
         expire = datetime.utcnow() + lifetime

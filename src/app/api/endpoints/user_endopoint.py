@@ -39,6 +39,8 @@ class UserRouter:
             *,
             user_signup: user_schema.UserSignupRequest
         ) -> Any:
+            # WARNING!! enumeration because it gives the information
+            # if the user exist or not.
             try:
                 return self.user_service.signup(
                     email=user_signup.email,
